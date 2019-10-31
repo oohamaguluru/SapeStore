@@ -1,0 +1,9 @@
+com\sapestore\controller\test\AccountControllerTest.class
+com\sapestore\controller\test\InventoryControllerTest.class
+com\sapestore\controller\test\ReportsControllerTest.class
+com\sapestore\controller\test\ProductControllerTest.class
+com\sapestore\controller\test\OrderControllerTest.class
+com\sapestore\controller\test\HomePageControllerTest.class
+com\sapestore\controller\test\BaseTestConfig.class
+com\sapestore\controller\test\PagesControllerTest.class
+com\sapestore\controller\test\ShoppingCartControllerTest.class

@@ -1,0 +1,5 @@
+Your friend ${userName} has referred the following book to you 
+	Book Title: ${bookTitle}
+	Book Description: ${bookDesc}
+	Book Price: ${bookPrice}
+	Please click on this link to view the book : 	${url}

@@ -1,0 +1,2 @@
+Hello Admin, The books with ISBN: ${isbn}, Book Title: ${bookTitle} are low in inventory
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>SapeStore</display-name>
+<error-page>
+    <error-code>404</error-code>
+    <location>/errorPage.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/errorPage.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>405</error-code>
+    <location>/errorPage.jsp</location>
+  </error-page> 
+  <servlet>
+    <servlet-name>SapeStore</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <context-param>
+    <param-name>log4jExposeWebAppRoot</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>webAppRootKey</param-name>
+    <param-value>FinanceManager.root</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>WEB-INF/SapeStore-servlet.xml</param-value>
+  </context-param>
+  <servlet-mapping>
+    <servlet-name>SapeStore</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>
+        com.sapestore.controller.SessionFilter
+    </filter-class>
+    <init-param>
+        <param-name>avoid-urls</param-name>
+        <param-value>/manageInventory,/manageOrders,/adminReport,/rentApprovals,/managePages,/getStatusPage,/transactionHistory</param-value>       
+    </init-param>
+     <init-param>
+     
+        <param-name>avoid-urls-user</param-name>
+        <param-value>/manageInventory,/manageOrders,/adminReport,/managePages,/rentApprovals</param-value>       
+        
+    </init-param>
+     <init-param>
+         <param-name>avoid-urls-admin</param-name>
+        <param-value>/getStatusPage,/personalInformation,/transactionHistory</param-value>       
+    </init-param>
+   </filter>
+   <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+   </filter-mapping>
+  
+<!--   <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list> -->
+</web-app>
